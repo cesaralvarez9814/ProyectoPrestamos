@@ -1,9 +1,7 @@
-## Installation
+## Run
 
-Follow these steps to install and run the project:
-
-1. Clone the repository: `git clone https://github.com/irojascorsico/jwt-auth-login.git`
-2. Navigate to the project directory: `cd your-repo/frontend/angular-login`
-3. Install dependencies: `npm install`
-4. Run the application: `ng serve`
-5. Open your browser and visit `http://localhost:4200` to view the application
+1.-Clona el repositorio
+2. Navega al directorio de tu repositorio: `cd your-repo/frontend/angular-login`
+3. Installa dependencias: `npm install`
+4. Corre la aplicacion: `ng serve`
+5. Abre tu navegador `http://localhost:4200` para ver la aplicacion
