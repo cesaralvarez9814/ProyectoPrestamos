@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <form  class="form-horizontal" [formGroup]="prestamosForm" (ngSubmit)="guardar()">
+            <div class="card-header">
+              <strong>Agregar Prestamo </strong>
+              <div class="card-actions">
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="cliente">Cliente</label>
+                <div class="col-md-9">
+                  <select formControlName="cliente" class="form-control" id="cliente" name="opcClientes" >
+                    <option [value]=0>Seleccione...</option>
+                    <option *ngFor="let clienteO of clientes" [value]="clienteO.id">{{clienteO.firstName}} {{clienteO.lastName}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="plazo">Plazo</label>
+                <div class="col-md-9">
+                  <select formControlName="plazo" class="form-control" id="plazo" name="opcPlazo" >
+                    <option [value]=0>Seleccione...</option>
+                    <option *ngFor="let plazo of plazos" [value]="plazo.id">{{plazo.valor}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3 form-control-label" for="monto">Monto</label>
+                <div class="col-md-9">
+                  <select formControlName="monto" class="form-control" id="monto" name="opcMonto" >
+                    <option [value]=0>Seleccione...</option>
+                    <option *ngFor="let monto of montos" [value]="monto.id">{{monto.valor}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer clearfix">
+              <div class="row">
+                <div class="col-md-3" id="boton">
+                    <button class="mr-2"  (click)="resetForm()" class="btn btn-sm btn-primary" type="reset">
+                  <em class="fa fa-ban"></em> Limpiar
+                </button>
+                </div>
+                <div class="col-md-3" id="boton">
+                    <button  type="button" class="btn btn-sm btn-danger mr-2" (click)="regresar()">Cancelar</button>
+                </div>
+                <div class="col-md-3" id="boton">
+                    <button [disabled]="!prestamosForm.valid" class="btn btn-sm btn-success mr-2" type="submit">
+                        <em class="far fa-dot-circle"></em> Guardar
+                      </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

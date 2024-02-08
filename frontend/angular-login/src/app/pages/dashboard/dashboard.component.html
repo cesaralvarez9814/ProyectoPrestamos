@@ -1,0 +1,60 @@
+<app-nav></app-nav>
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <strong>Listado de Prestamos</strong>
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                          <label  class="col-form-label">Cliente</label>
+                                        </div>
+                                        <div class="col-auto">
+                                          <input type="text" class="form-control" (keyup)="filtrar($event.target)" >
+                                        </div>
+                                      </div>
+                                </div>
+                                <div class="col-4">
+                                    <button type="button" class="btn btn-success" (click)="agregarPrestamo()">Agregar Prestamo</button>
+                                </div>
+                            </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <caption></caption>
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Monto Del Prestamo</th>
+                                <th>Plazo</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let prestamo of prestamos | paginate: { itemsPerPage: 10, currentPage: page }"
+                                style="text-align: center">
+                                <td>
+                                    {{prestamo.nombreCliente}}
+                                </td>
+                                <td>
+                                    ${{prestamo.monto}}
+                                </td>
+                                <td>
+                                    {{prestamo.plazo}}
+                                </td>
+                                <td>
+                                    <a href="#" [routerLink]="['/tabla/', prestamo.idPrestamo]">
+                                        <i class="bi bi-table"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <pagination-controls (pageChange)='page = $event' previousLabel=Anterior nextLabel=Siguiente></pagination-controls>       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

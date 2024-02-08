@@ -1,0 +1,72 @@
+<div class="animated fadeIn">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <strong><h3>Tabla De Amortizacion</h3></strong> 
+                    </div>
+                    <div class="row">
+                        <div class="col-auto">
+                            <strong>Cliente : {{this.cliente}}</strong>
+                        </div>
+                        <div class="col-auto">
+                            <strong>N.Pagos : {{this.tabla.numPagos}}</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="card-actions">
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <caption></caption>
+                        <thead>
+                            <tr>
+                                <th>N. Pago</th>
+                                <th>Fecha</th>
+                                <th>Prestamo</th>
+                                <th>Interes</th>
+                                <th>Abono</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let v of valores"
+                                style="text-align: center">
+                                <td>
+                                    {{v.npago}}
+                                </td>
+                                <td>
+                                    {{v.fecha}}
+                                </td>
+                                <td>
+                                    ${{v.prestamo}}
+                                </td>
+                                <td>
+                                    ${{v.interes}}
+                                </td>
+                                <td>
+                                    ${{v.abono}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><strong>Totales</strong></td>
+                                <td>${{this.tabla.sumPrestamo}}</td>
+                                <td>${{this.tabla.sumInteres}}</td>
+                                <td>${{this.tabla.sumAbono}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer alinear">
+                    <button  (click)="regresar()"
+                class="btn btn-sm btn-primary" type="reset">
+                <em class="bi bi-arrow-left"></em> Regresar
+              </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

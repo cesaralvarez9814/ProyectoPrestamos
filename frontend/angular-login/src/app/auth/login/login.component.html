@@ -1,0 +1,48 @@
+<div class="container-fluid mt-5"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="0"
+     fxLayoutGap.xs="100">
+     <div class="login-card mat-elevation-z8 mb-5" fxFlex="45%">
+            <main class="login-content"
+            fxLayout="column"
+            fxLayoutAlign="center center">
+                <span class="login-header mb-5 mt-3">Login</span>
+                <form [formGroup]="loginForm" class="login-form align-items-center" fxLayout="column">
+                    <p class="text-danger">{{loginError}}</p>
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
+                    <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">  
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                            class="text-danger">
+                            <div *ngIf="email.errors?.['required']">
+                                El usuario es requerido.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+                        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                            class="text-danger">
+                            <div *ngIf="password.errors?.['required']">
+                                La contraseña es requerida.
+                            </div>
+                        </div> 
+                    </div>
+                    <button type="submit" [disabled]="!email.valid || !password.valid" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
+                    
+                </form>
+            </main>
+    </div>
+    <div class="login-card login-content mat-elevation-z8" 
+          fxFlex=45%
+          fxLayout="column"
+          fxLayoutAlign="end start"
+          [ngStyle]="unsplashClass()">
+       <div class="login-aside-overlay"></div> 
+      <h1 class="login-welcome-text">Bienvenido!</h1>
+      <hr class="login-aside-hr">
+  </div>
+</div>
